@@ -1,0 +1,750 @@
+/* ============================================
+   NEW YEAR 2026 - MODERN CELEBRATION WEBPAGE
+   ============================================ */
+
+/* === CSS VARIABLES & RESET === */
+:root {
+    /* Color Palette - Gold & Midnight Blue Theme */
+    --primary-gold: #FFD700;
+    --secondary-gold: #FFA500;
+    --accent-gold: #FFE55C;
+    --midnight-blue: #0A1128;
+    --deep-blue: #1C2541;
+    --royal-blue: #3A506B;
+    --text-white: #FFFFFF;
+    --text-light: #E8E9ED;
+    --text-muted: #B0B4C5;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(10, 17, 40, 0.95) 0%, rgba(28, 37, 65, 0.98) 100%);
+    --gradient-card: linear-gradient(145deg, rgba(58, 80, 107, 0.1) 0%, rgba(28, 37, 65, 0.2) 100%);
+
+    /* Typography */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+
+    /* Effects */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 20px rgba(255, 215, 0, 0.3);
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.6s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--midnight-blue);
+    color: var(--text-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* === ANIMATED BACKGROUND WITH STARS === */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(ellipse at bottom, #1C2541 0%, #0A1128 100%);
+    overflow: hidden;
+}
+
+/* Create multiple star layers */
+.stars,
+.twinkling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.stars {
+    background: transparent;
+}
+
+/* Generate stars using box-shadow */
+.stars::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: 
+        779px 1331px #FFF, 324px 42px #FFF, 303px 586px #FFF, 1312px 276px #FFF, 451px 625px #FFF,
+        529px 1819px #FFF, 1478px 1631px #FFF, 1441px 1968px #FFF, 925px 1055px #FFF, 1516px 1433px #FFF,
+        795px 1273px #FFF, 1652px 1499px #FFF, 1679px 1137px #FFF, 1407px 1946px #FFF, 1335px 1024px #FFF,
+        784px 1865px #FFF, 1024px 1346px #FFF, 1849px 1691px #FFF, 1939px 1037px #FFF, 1585px 1738px #FFF,
+        538px 1279px #FFF, 1149px 1740px #FFF, 1346px 1292px #FFF, 1599px 1335px #FFF, 1024px 394px #FFF,
+        1820px 1821px #FFF, 1073px 1680px #FFF, 1155px 1307px #FFF, 1726px 384px #FFF, 148px 1710px #FFF,
+        875px 350px #FFF, 1926px 777px #FFF, 1750px 1383px #FFF, 1889px 1785px #FFF, 1907px 1942px #FFF,
+        1335px 1845px #FFF, 252px 1413px #FFF, 1197px 1354px #FFF, 1038px 1180px #FFF, 1231px 1168px #FFF,
+        1242px 1767px #FFF, 1744px 656px #FFF, 1715px 1222px #FFF, 1332px 1254px #FFF, 1395px 1278px #FFF,
+        1641px 1732px #FFF, 898px 1652px #FFF, 1892px 1594px #FFF, 1739px 1354px #FFF, 1822px 1686px #FFF,
+        1978px 211px #FFF, 1340px 1384px #FFF, 519px 1809px #FFF, 1455px 1513px #FFF, 1317px 1955px #FFF,
+        1579px 1470px #FFF, 1937px 1585px #FFF, 1922px 1217px #FFF, 1571px 1512px #FFF, 1446px 1759px #FFF,
+        1211px 1516px #FFF, 1460px 1423px #FFF, 1797px 1336px #FFF, 1988px 1322px #FFF, 1668px 1617px #FFF,
+        1915px 1695px #FFF, 1166px 1573px #FFF, 1175px 1381px #FFF, 1356px 1732px #FFF, 1852px 1690px #FFF,
+        1321px 1148px #FFF, 1417px 1559px #FFF, 1438px 1745px #FFF, 837px 1852px #FFF, 1808px 1866px #FFF,
+        1570px 1852px #FFF, 1436px 1349px #FFF, 1790px 1500px #FFF, 1355px 1474px #FFF, 1861px 1281px #FFF,
+        1354px 1726px #FFF, 1466px 1718px #FFF, 1587px 1565px #FFF, 1931px 1416px #FFF, 1155px 1529px #FFF,
+        1293px 1645px #FFF, 1365px 1873px #FFF, 1486px 1425px #FFF, 1647px 1754px #FFF, 1751px 1465px #FFF,
+        1698px 1343px #FFF, 1550px 1594px #FFF, 1661px 1438px #FFF, 1550px 1542px #FFF, 1555px 1698px #FFF,
+        1421px 1528px #FFF, 1734px 1540px #FFF, 1483px 1528px #FFF, 1624px 1623px #FFF, 1697px 1621px #FFF;
+    border-radius: 50%;
+}
+
+/* Twinkling effect with additional stars */
+.twinkling {
+    background: transparent;
+}
+
+.twinkling::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: 
+        100px 100px #FFD700, 300px 200px #FFE55C, 500px 300px #FFF, 700px 400px #FFD700,
+        900px 100px #FFF, 200px 500px #FFE55C, 400px 600px #FFD700, 600px 700px #FFF,
+        800px 200px #FFE55C, 150px 350px #FFF, 350px 450px #FFD700, 550px 550px #FFF,
+        750px 650px #FFE55C, 950px 750px #FFF, 250px 150px #FFD700, 450px 250px #FFF,
+        650px 350px #FFE55C, 850px 450px #FFD700, 180px 580px #FFF, 380px 680px #FFE55C,
+        580px 780px #FFD700, 780px 180px #FFF, 280px 380px #FFE55C, 480px 480px #FFD700,
+        680px 580px #FFF, 880px 680px #FFE55C, 120px 220px #FFD700, 320px 320px #FFF,
+        520px 420px #FFE55C, 720px 520px #FFD700, 920px 620px #FFF, 220px 720px #FFE55C,
+        420px 120px #FFD700, 620px 220px #FFF, 820px 320px #FFE55C, 160px 460px #FFD700,
+        360px 560px #FFF, 560px 660px #FFE55C, 760px 760px #FFD700, 960px 160px #FFF,
+        260px 260px #FFE55C, 460px 360px #FFD700, 660px 460px #FFF, 860px 560px #FFE55C,
+        140px 640px #FFD700, 340px 740px #FFF, 540px 140px #FFE55C, 740px 240px #FFD700,
+        940px 340px #FFF, 240px 440px #FFE55C, 440px 540px #FFD700, 640px 640px #FFF;
+    border-radius: 50%;
+    animation: twinkling 5s ease-in-out infinite;
+}
+
+@keyframes twinkling {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* === FIREWORKS CANVAS === */
+#fireworks-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* === MUSIC TOGGLE BUTTON === */
+.music-btn {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 100;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    border: 2px solid var(--primary-gold);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-glow);
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.music-btn svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--midnight-blue);
+}
+
+.music-btn .hidden {
+    display: none;
+}
+
+/* === MAIN CONTAINER === */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* === HERO SECTION === */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+}
+
+.glow-text-wrapper {
+    perspective: 1000px;
+    margin-bottom: var(--spacing-md);
+}
+
+.main-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.year-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 15vw, 12rem);
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: var(--spacing-md);
+}
+
+.glowing-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
+        transform: scale(1);
+    }
+    50% {
+        filter: drop-shadow(0 0 50px rgba(255, 215, 0, 0.8));
+        transform: scale(1.02);
+    }
+}
+
+.tagline {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 300;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xl);
+    letter-spacing: 0.05em;
+}
+
+/* === FADE IN ANIMATIONS === */
+.fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === COUNTDOWN TIMER === */
+.countdown {
+    display: flex;
+    gap: 1.5rem;
+    margin: var(--spacing-lg) 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.time-box {
+    background: rgba(28, 37, 65, 0.4);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-md);
+}
+
+.time-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-gold);
+    box-shadow: var(--shadow-glow);
+}
+
+.time-number {
+    font-size: 3rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.time-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* === CELEBRATION MESSAGE === */
+.celebration-msg {
+    margin-top: var(--spacing-lg);
+    padding: 2rem;
+    background: rgba(28, 37, 65, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 2px solid var(--primary-gold);
+    animation: celebration-pop 0.6s ease-out;
+}
+
+.celebration-msg h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-family: var(--font-display);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@keyframes celebration-pop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.sparkle {
+    animation: sparkle-rotate 2s ease-in-out infinite;
+}
+
+@keyframes sparkle-rotate {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+}
+
+/* === PERSONALIZATION SECTION === */
+.personalize-section {
+    max-width: 600px;
+    margin: var(--spacing-xl) auto;
+    text-align: center;
+}
+
+.cta-btn {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    background: var(--gradient-primary);
+    color: var(--midnight-blue);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-md);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.cta-btn:active {
+    transform: translateY(-1px);
+}
+
+.cta-btn svg {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.personal-msg {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: rgba(28, 37, 65, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 2px solid var(--primary-gold);
+    font-size: 1.3rem;
+    line-height: 1.8;
+    animation: fadeInUp 0.6s ease-out;
+    color: var(--text-light);
+}
+
+/* === WISHES SECTION === */
+.wishes-section {
+    margin: var(--spacing-xl) 0;
+    padding: var(--spacing-lg) 0;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.wishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: var(--spacing-md);
+}
+
+.wish-card {
+    background: rgba(28, 37, 65, 0.3);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 215, 0, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: all var(--transition-normal);
+    cursor: pointer;
+}
+
+.wish-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-gold);
+    box-shadow: var(--shadow-glow);
+}
+
+.wish-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.wish-card:nth-child(2) .wish-icon {
+    animation-delay: 0.5s;
+}
+
+.wish-card:nth-child(3) .wish-icon {
+    animation-delay: 1s;
+}
+
+.wish-card:nth-child(4) .wish-icon {
+    animation-delay: 1.5s;
+}
+
+.wish-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary-gold);
+}
+
+.wish-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* === SHARE SECTION === */
+.share-section {
+    max-width: 700px;
+    margin: var(--spacing-xl) auto;
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+}
+
+.share-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-light);
+}
+
+.share-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+}
+
+.share-btn svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.share-btn.twitter {
+    color: #1DA1F2;
+}
+
+.share-btn.instagram {
+    color: #E4405F;
+}
+
+.share-btn.whatsapp {
+    color: #25D366;
+}
+
+.share-btn.linkedin {
+    color: #0077B5;
+}
+
+.share-btn.copy {
+    color: var(--primary-gold);
+}
+
+.share-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    border-color: currentColor;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px currentColor;
+}
+
+.copy-feedback {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--gradient-primary);
+    color: var(--midnight-blue);
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-block;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === FOOTER === */
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    text-align: center;
+    color: #8892b0;
+}
+
+.footer-content p {
+    margin-bottom: 15px;
+}
+
+.brand-signature {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ag-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24, #ffa726, #42a5f5, #ab47bc);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease-in-out infinite;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+@keyframes gradient-shift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* === UTILITY CLASSES === */
+.hidden {
+    display: none !important;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+    :root {
+        --spacing-xl: 2.5rem;
+        --spacing-lg: 2rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .music-btn {
+        top: 1rem;
+        right: 1rem;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .main-title {
+        font-size: clamp(2rem, 10vw, 4rem);
+    }
+
+    .year-title {
+        font-size: clamp(3rem, 18vw, 8rem);
+    }
+
+    .countdown {
+        gap: 1rem;
+    }
+
+    .time-box {
+        min-width: 90px;
+        padding: 1rem 1.5rem;
+    }
+
+    .time-number {
+        font-size: 2rem;
+    }
+
+    .cta-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+
+    .wishes-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .time-box {
+        min-width: 70px;
+        padding: 0.8rem 1rem;
+    }
+
+    .time-number {
+        font-size: 1.5rem;
+    }
+
+    .time-label {
+        font-size: 0.75rem;
+    }
+}
+
+/* === ACCESSIBILITY === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* === PRINT STYLES === */
+@media print {
+    .music-btn,
+    .share-section,
+    #fireworks-canvas,
+    .bg-animation {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+}
+
