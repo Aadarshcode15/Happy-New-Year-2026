@@ -220,16 +220,29 @@ function initPersonalization() {
     });
 }
 
-// MUSIC TOGGLE
+// MUSIC TOGGLE WITH TOOLTIP
 function initMusicToggle() {
     const musicBtn = document.getElementById('music-toggle');
     const bgMusic = document.getElementById('bg-music');
     const musicIcon = musicBtn.querySelector('.music-icon');
     const muteIcon = musicBtn.querySelector('.mute-icon');
+    const tooltip = document.getElementById('music-tooltip');
 
     let isPlaying = false;
 
+    // Auto-hide tooltip after 5 seconds
+    setTimeout(() => {
+        if (tooltip && !isPlaying) {
+            tooltip.classList.add('hidden');
+        }
+    }, 5000);
+
     musicBtn.addEventListener('click', () => {
+        // Hide tooltip on first click
+        if (tooltip) {
+            tooltip.classList.add('hidden');
+        }
+
         if (isPlaying) {
             bgMusic.pause();
             musicIcon.classList.remove('hidden');
@@ -244,6 +257,19 @@ function initMusicToggle() {
             musicBtn.setAttribute('aria-label', 'Pause background music');
         }
         isPlaying = !isPlaying;
+    });
+
+    // Hide tooltip on hover over button
+    musicBtn.addEventListener('mouseenter', () => {
+        if (tooltip && !isPlaying) {
+            tooltip.style.opacity = '0.5';
+        }
+    });
+
+    musicBtn.addEventListener('mouseleave', () => {
+        if (tooltip && !isPlaying && !tooltip.classList.contains('hidden')) {
+            tooltip.style.opacity = '1';
+        }
     });
 }
 
@@ -380,3 +406,4 @@ function initAccessibility() {
 
 console.log('%c🎉 Happy New Year 2026! 🎉', 'font-size: 30px; font-weight: bold; color: #FFD700;');
 console.log('%cMay your code be bug-free! 🚀', 'font-size: 16px; color: #FFA500;');
+console.log('%c♪ Soft music ready to play - click the button! ♪', 'font-size: 14px; color: #4ECDC4;');

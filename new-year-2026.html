@@ -7,7 +7,6 @@
     <title>Happy New Year 2026 🎉</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" type="image/png" href="icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -21,15 +20,22 @@
     <!-- Fireworks Canvas -->
     <canvas id="fireworks-canvas"></canvas>
 
-    <!-- Audio Control -->
-    <button id="music-toggle" class="music-btn" aria-label="Toggle background music">
-        <svg class="music-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 18V5l12-2v13M9 18c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm12-3c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z"/>
-        </svg>
-        <svg class="mute-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6"/>
-        </svg>
-    </button>
+    <!-- Audio Control with Tooltip -->
+    <div class="music-control-wrapper">
+        <button id="music-toggle" class="music-btn" aria-label="Toggle background music">
+            <svg class="music-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18V5l12-2v13M9 18c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm12-3c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z"/>
+            </svg>
+            <svg class="mute-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6"/>
+            </svg>
+        </button>
+        <!-- Tooltip -->
+        <div class="music-tooltip" id="music-tooltip">
+            <span class="tooltip-text">🎵 Click to play music</span>
+            <div class="tooltip-arrow"></div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main class="container">
@@ -45,7 +51,7 @@
             </div>
 
             <p class="tagline fade-in-up">
-                Embrace New Beginnings, Endless Possibilities!!
+                Embrace New Beginnings, Endless Possibilities
             </p>
 
             <!-- Countdown Timer -->
@@ -87,7 +93,7 @@
 
         <!-- Wishes Section -->
         <section class="wishes-section fade-in-up">
-            <h2 class="section-title">My Wishes for You!</h2>
+            <h2 class="section-title">Our Wishes for You</h2>
             <div class="wishes-grid">
                 <div class="wish-card">
                     <div class="wish-icon">✨</div>
@@ -114,7 +120,7 @@
 
         <!-- Share Section -->
         <section class="share-section fade-in-up">
-            <h3 class="share-title">Spread the Joy with your Loved ones!</h3>
+            <h3 class="share-title">Spread the Joy</h3>
             <div class="share-buttons">
                 <button class="share-btn twitter" data-platform="twitter" aria-label="Share on Twitter">
                     <svg viewBox="0 0 24 24" fill="currentColor">
@@ -148,20 +154,19 @@
     </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>Made with 💖 for amazing 2026.</p>
-            <div class="brand-signature">
-                <span>🔥 </span>
-                <span class="ag-brand"> AG CREATIONS </span>
-                <span> 🔥</span>
-            </div>
-        </div>
+    <footer class="footer">
+        <p>Made with 💖 for an Amazing 2026</p>
+        <p class="footer-note">Wishing you 365 days of wonder</p>
     </footer>
 
-    <!-- Audio Element (hidden) -->
+    <!-- Audio Element - Soft Piano New Year Music -->
     <audio id="bg-music" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-newdawn.mp3" type="audio/mpeg">
+        <!-- Primary: Calm peaceful piano track from Bensound -->
+        <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
+        <!-- Fallback 1: Peaceful ambient track -->
+        <source src="https://cdn.pixabay.com/audio/2022/03/10/audio_4a8a5a5871.mp3" type="audio/mpeg">
+        <!-- Fallback 2: Soft celebration music -->
+        <source src="https://cdn.pixabay.com/audio/2021/08/04/audio_bb630cc098.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Scripts -->
