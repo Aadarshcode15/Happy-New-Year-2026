@@ -668,23 +668,52 @@ body {
 }
 
 /* === FOOTER === */
-.footer {
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
     text-align: center;
-    padding: var(--spacing-lg) var(--spacing-md);
-    margin-top: var(--spacing-xl);
-    border-top: 1px solid rgba(255, 215, 0, 0.2);
-    color: var(--text-muted);
+    color: #8892b0;
 }
 
-.footer p {
-    margin: 0.5rem 0;
+.footer-content p {
+    margin-bottom: 15px;
 }
 
-.footer-note {
-    font-size: 0.9rem;
-    font-style: italic;
+.brand-signature {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.ag-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24, #ffa726, #42a5f5, #ab47bc);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease-in-out infinite;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+@keyframes gradient-shift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
 /* === UTILITY CLASSES === */
 .hidden {
     display: none !important;
